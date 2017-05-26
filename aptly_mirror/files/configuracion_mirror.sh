@@ -1,22 +1,18 @@
 #!/bin/bash
-# Read and split array that contain the dependencies defined by user.
+
+#Se recuperan las variables del entorno y se hace un split separando por ",". Se crea un string que configurara el mirror.
 IFS=', ' read -r -a array <<< "${deps}"
-# Split symbol (used to separate dependencies)
-symbol=" | "
-# Base Filter (contains required, important and standard Aptly dependencies)
-mirrorFilter="Priority (required) | Priority (important) | Priority (standard) "
-# Add dependencies to filter
-for package in "${array[@]}"
+separador=" | "
+configuracion="Priority (required) | Priority (important) | Priority (standard) "
+for paquete in "${array[@]}"
 do
- mirrorFilter=$mirrorFilter$symbol$package
+ configuracion=$configuracion$separador$paquete
 done
-# Add new dependencies to mirror's filter
-aptly mirror edit -filter="$mirrorFilter" mirror-xenial
-# Update mirror's dependencies
+
+#Se aplica la configuracion al mirror aplty y se actualiza la base de datos.
+aptly mirror edit -filter="$configuracion" mirror-xenial
 aptly mirror update mirror-xenial
-# Create mirror's snapshot
 aptly snapshot create mirror-snap-xenial from mirror mirror-xenial
-# Publish mirror's snapshot
+#Se crea el snapshot y se publica el mirror
 ./aptly_expect.sh
-# Start mirror's service
 aptly serve

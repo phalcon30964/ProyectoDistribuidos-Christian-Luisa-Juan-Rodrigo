@@ -27,13 +27,13 @@ RUN apt-get install aptly -y && \
 RUN aptly mirror create -architectures=amd64 -filter='Priority (required) | Priority (important) | Priority (standard) ' -filter-with-deps mirror-xenial http://mirror.upb.edu.co/ubuntu/ xenial main
 RUN aptly mirror update mirror-xenial
 
-#Add publish configuration
+#Se utiliza expect para crear los snapshots. Se crea un script para recibir el array de variables y configurar el mirror con ellas.
 ADD /files/aptly_expect.sh /aptly_expect.sh
-RUN chmod +x /aptly_expect.sh
-
-#Add entrypoint
 ADD /files/configuracion_mirror.sh /configuracion_mirror.sh
+
+#Se otorgan permisos de ejecucion.
+RUN chmod +x /aptly_expect.sh
 RUN chmod +x /configuracion_mirror.sh
 
-#EntryPoint Command 
+#El siguiente script edita la configuracion del mirror , luego llama a aptly_expect y crea los snapshots y publica el servidor aplty.
 CMD ["./configuracion_mirror.sh"]
