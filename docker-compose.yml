@@ -1,0 +1,25 @@
+version: '2.0'
+services:
+
+#Cliente de aptly 
+  aptly_client: 
+    build:
+      context: ./aptly_client
+      dockerfile: Dockerfile
+    environment:
+      - deps=python3,vim-gnome,byzanz
+    ports:
+      - "8090:80" 
+    depends_on:
+      - aptly_mirror
+
+#Servidor aptly
+  aptly_mirror: 
+    build:
+      context: ./aptly_mirror
+      dockerfile: Dockerfile
+    environment:
+      - deps=python3,vim-gnome,byzanz
+    expose:
+      - "8080"
+
