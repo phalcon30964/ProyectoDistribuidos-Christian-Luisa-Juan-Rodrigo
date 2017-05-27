@@ -1,3 +1,5 @@
+**ProyectoDistribuidos-Christian-Luisa-Juan-Rodrigo
+
 Este proyecto consiste de la creacion de un mirror con aplty. Este mirror es usado por un contenedor cliente que descarga copias del mirror local. Esta configuracion es usada por eficiencia en redes lan.
 
 Para probar el funcinamiento de este proyecto se ejecuta primero el comando docker-compose build
