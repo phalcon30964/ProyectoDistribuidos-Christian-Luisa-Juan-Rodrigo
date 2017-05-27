@@ -4,12 +4,12 @@ Este proyecto consiste de la creacion de un mirror con aplty. Este mirror es usa
 
 Para probar el funcinamiento de este proyecto se ejecuta primero el comando docker-compose build
 
-![alt text](https://github.com/phalcon30964/ProyectoDistribuidos-Christian-Luisa-Juan-Rodrigo/blob/master/Evidencia/Docker-compose%20build.gif)
+![alt text](https://github.com/phalcon30964/ProyectoDistribuidos-Christian-Luisa-Juan-Rodrigo/blob/master/Capturas%20de%20pantalla/Docker-compose%20build.gif)
 
 Luego se ejecuta el comando docker-compose up
 
-![alt text](https://github.com/phalcon30964/ProyectoDistribuidos-Christian-Luisa-Juan-Rodrigo/blob/master/Evidencia/Docker-compose%20up.gif)
+![alt text](https://github.com/phalcon30964/ProyectoDistribuidos-Christian-Luisa-Juan-Rodrigo/blob/master/Capturas%20de%20pantalla/Docker-compose%20up.gif)
 
 Por ultimo se ejecuta hacen las pruebas de que esta instalado python ejecuntando python3 y viendo la consola que sale. Tambien se comprueba el funcionamiento de gvim ejecutando el mismo comando y observando la interfaz de este.
 
-![alt text](https://github.com/phalcon30964/ProyectoDistribuidos-Christian-Luisa-Juan-Rodrigo/blob/master/Evidencia/Dockers.gif)
+![alt text](https://github.com/phalcon30964/ProyectoDistribuidos-Christian-Luisa-Juan-Rodrigo/blob/master/Capturas%20de%20pantalla/Dockers.gif)
